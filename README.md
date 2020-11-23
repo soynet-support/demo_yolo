@@ -49,7 +49,6 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 
 
 
-
 ### SoyNet 데모 실행
 
 #### 1.Download
@@ -72,7 +71,7 @@ $ bash ./setup.sh
 #### 4.Demo code Build
 ```
 $ cd samples
-$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -Llib -lSoyNet -L./3rdParty -lpthread -lopencv_world
+$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -L./3rdParty -lpthread -lopencv_world
 ```
 
 #### 5.Demo Code 실행
