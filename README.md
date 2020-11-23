@@ -20,14 +20,15 @@ AI Deep learning model을 위한 inference only framework인 [SoyNet](https://so
    Windows는 dll, Linux는 so 파일 형태 (개발용 header와 lib는 별도)
  - 폴더 구성
   ```
-   ├─data         : 테스트 용 영상 파일 포함
    ├─mgmt         : SoyNet 실행환경
    │  ├─configs   : 모델정의 파일 (*.cfg)와 임시 라이선스키 포함 
    │  ├─engines   : SoyNet 실행 엔진 파일 생성 (최초 실행 시 1회. 30초 가량 소요)
    │  ├─logs      : SoyNet log 파일 폴더
    │  └─weights   : 테스트용 모델의 weight 파일포함 (변환 script을 이용하여 SoyNet용으로 변환된 것임)
-   └─run          : 실행 파일을 포함한 폴더 
- ```
+   └─samples      : 실행 파일을 포함한 빌드를 위한 폴더 
+      ├─include   : SoyNet 빌드를 위한 header file 포함 폴더
+      └─lib       : 데모를 위한 3rd Party library 폴더 (OpenCV 등)
+    ```
 
 ## Yolov4를 이용한 객체 감지 데모 
 
@@ -54,7 +55,8 @@ $ git clone https://github.com/soynet-support/demo_yolov4
 #### 2.Demo code Build
 
 $ cd demo_yolov4/samples
-$ g++ -02 -std=c++11 -m64 -o ../yolov4 yolov4.cpp -I./include -L../lib -lSoyNet -lpthread -lopencv_world
+$ g++ -02 -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -L./lib -lpthread -lopencv_world
 
-#### 3.Demo Code 실행 
+#### 3.Demo Code 실행
+$ cd demo_yolov4/samples 
 $ ./yolov4
