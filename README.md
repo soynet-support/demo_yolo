@@ -42,9 +42,10 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
  - 운영체제 : Ubuntu 18.04LTS
  - NVIDIA 개발환경 : CUDA 10.0 / cuDNN 7.x / TensorRT 6.0
  - 기타 : OpenCV 3.4.5 (영상 파일 읽고 화면 출력하기 위한 용도)
-
-* 위에 언급된 실행환경 구성을 위한 so 파일들의 다운로드 링크는 다음과 같으며 
-run 폴더 상에 복사하거나 다른 폴더 상에 두고 LD_LIBRARY_PATH 환경 변수 상에 해당 경로를 추가
+ 
+참고) 위에 언급된 실행환경 구성을 위한 so 파일들의 다운로드 링크는 다음과 같으며 
+     다운받은 library 들 samples/lib 폴더 상에 저장하고 해당 폴더 LD_LIBRARY_PATH 환경 변수 상에 경로를 추가
+     [Link] (https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
 
 
 ### SoyNet 데모 실행
