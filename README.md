@@ -19,7 +19,7 @@ AI Deep learning model을 위한 inference only framework인 [SoyNet](https://so
  - 제공형태는 library 파일 
    Windows는 dll, Linux는 so 파일 형태 (개발용 header와 lib는 별도)
  - 폴더 구성
-  ```
+   ```
    ├─mgmt         : SoyNet 실행환경
    │  ├─configs   : 모델정의 파일 (*.cfg)와 임시 라이선스키 포함 
    │  ├─engines   : SoyNet 실행 엔진 파일 생성 (최초 실행 시 1회. 30초 가량 소요)
@@ -28,7 +28,8 @@ AI Deep learning model을 위한 inference only framework인 [SoyNet](https://so
    └─samples      : 실행 파일을 포함한 빌드를 위한 폴더 
       ├─include   : SoyNet 빌드를 위한 header file 포함 폴더
       └─lib       : 데모를 위한 3rd Party library 폴더 (OpenCV 등)
-    ```
+   ```
+   
 
 ## Yolov4를 이용한 객체 감지 데모 
 
