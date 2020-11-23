@@ -63,10 +63,10 @@ $ bash ./setup.sh
 #### 3.Demo code Build
 ```
 $ cd demo_yolov4/samples
-$ g++ -02 -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -L./lib -lpthread -lopencv_world
+$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -L./lib -lpthread -lopencv_world
 ```
 #### 4.Demo Code 실행
 ```
 $ cd demo_yolov4/samples
-$ ./yolov4
+$ LD_LIBRARY_PATH=./lib/:$LD_LIBRARY_PATH ./yolov4
 ```
