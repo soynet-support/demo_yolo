@@ -26,8 +26,9 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
    │  ├─logs      : SoyNet log 파일 폴더
    │  └─weights   : 테스트용 모델의 weight 파일포함 (변환 script을 이용하여 SoyNet용으로 변환된 것임)
    └─samples      : 실행 파일을 포함한 빌드를 위한 폴더 
-      ├─include   : SoyNet 빌드를 위한 header file 포함 폴더
-      └─lib       : 데모를 위한 3rd Party library 폴더 (OpenCV 등)
+      ├─include   : SoyNet 빌드를 위한 header file 포함 폴더 
+      ├─lib       : SoyNet 빌드 위한 lib file 포함 폴더
+      └─3rdParty  : 데모를 위한 3rd Party library 폴더 (OpenCV, CUDA/cuDNN,TensorRT 등등)
    ```
    
 
@@ -62,11 +63,10 @@ $ bash ./setup.sh
 
 #### 3.Demo code Build
 ```
-$ cd demo_yolov4/samples
-$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -L./lib -lpthread -lopencv_world
+$ cd samples
+$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -Llib -lSoyNet -L./3rdParty -lpthread -lopencv_world
 ```
 #### 4.Demo Code 실행
 ```
-$ cd demo_yolov4/samples
-$ LD_LIBRARY_PATH=./lib/:$LD_LIBRARY_PATH ./yolov4
+$ LD_LIBRARY_PATH=../mgmt:./3rdParty/:$LD_LIBRARY_PATH ./yolov4
 ```
