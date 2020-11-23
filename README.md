@@ -1,4 +1,4 @@
-AI Deep learning model을 위한 inference only framework인 [SoyNet](https://soynet.io, "SOYNET Homepage")을 이용하여
+AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io, "SOYNET Homepage")을 이용하여
 객체감지 모델 중 하나인 Yolov4를 실행하는 데모를 수행하는 과정을 설명한다. 
 
 ## SoyNet 개요
