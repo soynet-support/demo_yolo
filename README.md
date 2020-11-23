@@ -27,7 +27,6 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
    │  └─weights   : 테스트용 모델의 weight 파일포함 (변환 script을 이용하여 SoyNet용으로 변환된 것임)
    └─samples      : 실행 파일을 포함한 빌드를 위한 폴더 
       ├─include   : SoyNet 빌드를 위한 header file 포함 폴더 
-      ├─lib       : SoyNet 빌드 위한 lib file 포함 폴더
       └─3rdParty  : 데모를 위한 3rd Party library 폴더 (OpenCV, CUDA/cuDNN,TensorRT 등등)
    ```
    
