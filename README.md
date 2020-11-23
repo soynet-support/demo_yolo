@@ -47,7 +47,7 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 위에 언급된 실행환경 구성을 위한 so 파일들의 다운로드 링크는 다음과 같으며
 다운받은 library 들 samples/lib 폴더 상에 저장하고 해당 폴더 LD_LIBRARY_PATH 환경 변수 상에 경로를 추가
 
-[library download](https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
+
 
 
 ### SoyNet 데모 실행
@@ -56,17 +56,26 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 ```
 $ git clone https://github.com/soynet-support/demo_yolov4
 ```
+
 #### 2.create folders & download yolov4 weight file 
 ```
+$ cd demo_yolov4
 $ bash ./setup.sh
 ```
 
-#### 3.Demo code Build
+#### 3.download 3rd party libraries 
+아래 링크에서 파일을 다운로드하여 samples/3rdParty 폴더에 풀어줌 (이미 S/W 환경구성이완료되어있다면 넘어가도 됨)
+
+[library download](https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
+
+
+#### 4.Demo code Build
 ```
 $ cd samples
 $ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -Llib -lSoyNet -L./3rdParty -lpthread -lopencv_world
 ```
-#### 4.Demo Code 실행
+
+#### 5.Demo Code 실행
 ```
 $ LD_LIBRARY_PATH=../mgmt:./3rdParty/:$LD_LIBRARY_PATH ./yolov4
 ```
