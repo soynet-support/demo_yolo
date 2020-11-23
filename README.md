@@ -51,14 +51,16 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 ### SoyNet 데모 실행
 
 #### 1.Download
-
+```
 $ git clone https://github.com/soynet-support/demo_yolov4
-
+```
 #### 2.Demo code Build
-
+```
 $ cd demo_yolov4/samples
 $ g++ -02 -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -L./lib -lpthread -lopencv_world
-
+```
 #### 3.Demo Code 실행
-$ cd demo_yolov4/samples 
+```
+$ cd demo_yolov4/samples
 $ ./yolov4
+```
