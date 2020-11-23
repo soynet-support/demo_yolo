@@ -1,5 +1,6 @@
 
 #include "SoyNet.h"
+#include "util.h"
 #include <vector>
 #include <fstream>
 #include "opencv2/opencv.hpp"
@@ -15,61 +16,6 @@ using namespace chrono;
 #pragma pack(push, 1)
 typedef struct { float x1; float y1; float x2; float y2; int obj_id; float confid; } BBox;
 #pragma pack(pop)
-
-void HSV2RGB(float rgb[], const float hsv[])
-{
-	if (hsv[1] < FLT_MIN)	rgb[0] = rgb[1] = rgb[2] = hsv[2];
-	else {
-		const float h = hsv[0];
-		const int i = (int)h;
-		const float f = h - i;
-		const float p = hsv[2] * (1.0f - hsv[1]);
-
-		if (i & 1) {
-			const float q = hsv[2] * (1.0f - (hsv[1] * f));
-			switch (i) {
-			case 1: rgb[0] = q; rgb[1] = hsv[2]; rgb[2] = p; break;
-			case 3: rgb[0] = p; rgb[1] = q; rgb[2] = hsv[2]; break;
-			default: rgb[0] = hsv[2]; rgb[1] = p; rgb[2] = q;  break;
-			}
-		}
-		else {
-			const float t = hsv[2] * (1.0f - (hsv[1] * (1.0f - f)));
-			switch (i) {
-			case 0: rgb[0] = hsv[2]; rgb[1] = t; rgb[2] = p; break;
-			case 2: rgb[0] = p; rgb[1] = hsv[2]; rgb[2] = t; break;
-			default: rgb[0] = t; rgb[1] = p; rgb[2] = hsv[2]; break;
-			}
-		}
-	}
-}
-
-void makeColors(int N, unsigned char* colors, const string& mode)
-{
-	vector<float> fcolors(N * 3);
-	vector<int> r(N);
-	for (int idx = 0; idx < N; idx++) {
-		float hsv[] = { (float)idx / N, 1.f, 1.f };
-		float* rgb = fcolors.data() + idx * 3;
-		HSV2RGB(rgb, hsv);
-		r[idx] = idx;
-	}
-	{
-		random_device rd;
-		mt19937 g(rd());
-		shuffle(r.begin(), r.end(), g);
-	}
-	if (mode == "rgb" || mode == "RGB") {
-		for (int idx = 0; idx < N; idx++) {
-			colors[idx * 3 + 0] = (unsigned char)(fcolors[r[idx] * 3 + 0] * 255.f + 0.5f); colors[idx * 3 + 1] = (unsigned char)(fcolors[r[idx] * 3 + 1] * 255.f + 0.5f); colors[idx * 3 + 2] = (unsigned char)(fcolors[r[idx] * 3 + 2] * 255.f + 0.5f);
-		}
-	}
-	else if (mode == "bgr" || mode == "BGR") {
-		for (int idx = 0; idx < N; idx++) {
-			colors[idx * 3 + 2] = (unsigned char)(fcolors[r[idx] * 3 + 0] * 255.f + 0.5f); colors[idx * 3 + 1] = (unsigned char)(fcolors[r[idx] * 3 + 1] * 255.f + 0.5f); colors[idx * 3 + 0] = (unsigned char)(fcolors[r[idx] * 3 + 2] * 255.f + 0.5f);
-		}
-	}
-}
 
 void task_yolo(const void* soynet, const void* input, void* output, long long* frame_sec)
 {
