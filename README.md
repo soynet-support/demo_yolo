@@ -58,9 +58,9 @@ $ bash ./setup.sh
 ```
 
 #### 3.download 3rd party libraries 
-아래 링크에서 파일을 다운로드하여 samples/3rdParty 폴더에 풀어줌 (이미 S/W 환경구성이완료되어있다면 넘어가도 됨)
-
-단, OpenCV의 경우는 데모 프로그램 빌드 시 필요하므로 설치되어 있어야 함
+아래 링크에서 파일을 다운로드하여 samples/3rdParty 폴더에 풀어줌
+  - 이미 사전요구사항인 S/W 환경구성이 완료되어 있다면 넘어가도 됨
+  - OpenCV의 경우는 데모 프로그램 빌드 시 header, lib 파일이 필요하므로 사전 설치되어 있어야 함
 
 [library download](https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
 
