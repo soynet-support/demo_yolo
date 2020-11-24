@@ -22,7 +22,7 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
    ```
    ├─mgmt         : SoyNet 실행환경
    │  ├─configs   : 모델정의 파일 (*.cfg)와 임시 라이선스키 포함 
-   │  ├─engines   : SoyNet 실행 엔진 파일 생성 (최초 실행 시 1회. 30초 가량 소요)
+   │  ├─engines   : SoyNet 실행 엔진 파일 생성 (최초 실행 시 1회 생성됨. 30초 가량 소요되며 이후는 생성 파일로 로딩)
    │  ├─logs      : SoyNet log 파일 폴더
    │  └─weights   : 테스트용 모델의 weight 파일포함 (변환 script을 이용하여 SoyNet용으로 변환된 것임)
    └─samples      : 실행 파일을 포함한 빌드를 위한 폴더 
