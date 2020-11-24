@@ -45,7 +45,7 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
  
 위에 언급된 실행환경 구성을 위한 so 파일들의 다운로드 링크는 다음과 같으며
 다운받은 library 들 samples/lib 폴더 상에 저장하고 해당 폴더 LD_LIBRARY_PATH 환경 변수 상에 경로를 추가
-
+단, OpenCV의 경우는 데모 프로그램 빌드 시 필요하므로 설치되어 있어야 함
 
 
 ### SoyNet 데모 실행
