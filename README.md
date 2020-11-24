@@ -62,7 +62,7 @@ $ bash ./setup.sh
   - 이미 사전요구사항인 S/W 환경구성이 완료되어 있다면 넘어가도 됨
   - OpenCV의 경우는 데모 프로그램 빌드 시 header, lib 파일이 필요하므로 사전 설치되어 있어야 함
 
-[library download](https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
+[3rd Party library download](https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
 
 
 #### 4.Demo code Build
