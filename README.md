@@ -76,5 +76,5 @@ $ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -l
 #### 4.Demo Code 실행
 최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
 ```
-$ LD_LIBRARY_PATH=../mgmt:./3rdParty/:$LD_LIBRARY_PATH ./yolov4
+$ LD_LIBRARY_PATH=../mgmt:$LD_LIBRARY_PATH ./yolov4
 ```
