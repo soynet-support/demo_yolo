@@ -57,21 +57,23 @@ $ cd demo_yolov4
 $ bash ./setup.sh
 ```
 
+<!--
 #### 3.download 3rd party libraries 
 아래 링크에서 파일을 다운로드하여 samples/3rdParty 폴더에 풀어줌
   - 이미 사전요구사항인 S/W 환경구성이 완료되어 있다면 넘어가도 됨
   - OpenCV의 경우는 데모 프로그램 빌드 시 header, lib 파일이 필요하므로 사전 설치되어 있어야 함
 
 [3rd Party library download](https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
+//-->
 
 
-#### 4.Demo code Build
+#### 3.Demo code Build
 ```
 $ cd samples
-$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -L./3rdParty -lpthread -lopencv_world
+$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
 ```
 
-#### 5.Demo Code 실행
+#### 4.Demo Code 실행
 최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
 ```
 $ LD_LIBRARY_PATH=../mgmt:./3rdParty/:$LD_LIBRARY_PATH ./yolov4
