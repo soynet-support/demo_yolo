@@ -26,8 +26,7 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
    │  ├─logs      : SoyNet log 파일 폴더
    │  └─weights   : 테스트용 모델의 weight 파일포함 (변환 script을 이용하여 SoyNet용으로 변환된 것임)
    └─samples      : 실행 파일을 포함한 빌드를 위한 폴더 
-      ├─include   : SoyNet 빌드를 위한 header file 포함 폴더 
-      └─3rdParty  : 데모를 위한 3rd Party library 폴더 (OpenCV, CUDA/cuDNN,TensorRT 등등)
+      └─include   : SoyNet 빌드를 위한 header file 포함 폴더 
    ```
    
 
@@ -57,32 +56,15 @@ $ cd demo_yolo
 $ bash ./mgmt/weights/download_weights.sh
 ```
 
-<!--
-#### 3.download 3rd party libraries 
-아래 링크에서 파일을 다운로드하여 samples/3rdParty 폴더에 풀어줌
-  - 이미 사전요구사항인 S/W 환경구성이 완료되어 있다면 넘어가도 됨
-  - OpenCV의 경우는 데모 프로그램 빌드 시 header, lib 파일이 필요하므로 사전 설치되어 있어야 함
-
-[3rd Party library download](https://drive.google.com/drive/folders/1dF-O_cdstyTt6eKRxN-p8Klv1ITfNHMh?usp=sharing, "3rd party libs")
-//-->
-
-
 #### 3.Demo code Build
 ```
 $ cd samples && make all 
 ```
-<!--
-$ g++ -std=c++11 -m64 -o ../mgmt/yolov3-tiny ./yolov3-tiny.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
-$ g++ -std=c++11 -m64 -o ../mgmt/yolov3 ./yolov3.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
-$ g++ -std=c++11 -m64 -o ../mgmt/yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
-//--> 
 
 #### 4.Demo Code 실행
 최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
 ```
 $ cd mgmt
-
-# yolo v3 경우, 
 $ LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH ./yolov3
 ```
 
@@ -97,8 +79,8 @@ wget https://soynet.io/download/install_opencv_345.sh && bash install_opencv_345
 '''
 
 
-2.demo용 Docker 생성
- - nvidia-docker 이용
+2.demo용 Docker 
+ - nvidia-docker 이용한 dockerfile 예시 
 
 '''
 $ cd utils
