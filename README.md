@@ -91,8 +91,16 @@ $ LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH ./yolov3
 
 1.OpenCV 설치 : 
  - 스크립트 원본 : https://github.com/milq/milq/blob/master/scripts/bash/install-opencv.sh
+ 
 '''
 wget https://soynet.io/download/install_opencv_345.sh && bash install_opencv_345.sh
 '''
 
-2.Docker 
+
+2.demo용 Docker 생성
+ - nvidia-docker 이용
+
+'''
+$ cd utils
+$ docker build -t demo_yolo .
+'''
