@@ -54,7 +54,7 @@ $ git clone https://github.com/soynet-support/demo_yolo
 #### 2.download pre-trained weight files 
 ```
 $ cd demo_yolo
-$ bash ./weights/download_weights.sh
+$ bash ./mgmt/weights/download_weights.sh
 ```
 
 <!--
