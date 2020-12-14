@@ -31,7 +31,7 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
    ```
    
 
-## Yolov4를 이용한 객체 감지 데모 
+## Yolo (v3-tiny, v3, v4)를 이용한 객체 감지 데모 
 
 ### 사전 요구사항
 
@@ -48,12 +48,12 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 
 #### 1.Download
 ```
-$ git clone https://github.com/soynet-support/demo_yolov4
+$ git clone https://github.com/soynet-support/demo_yolo
 ```
 
 #### 2.create folders & download yolov4 weight file 
 ```
-$ cd demo_yolov4
+$ cd demo_yolo
 $ bash ./setup.sh
 ```
 
@@ -70,11 +70,17 @@ $ bash ./setup.sh
 #### 3.Demo code Build
 ```
 $ cd samples
-$ g++ -std=c++11 -m64 -o ./yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
+$ make all 
 ```
+<!--
+$ g++ -std=c++11 -m64 -o ../mgmt/yolov3-tiny ./yolov3-tiny.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
+$ g++ -std=c++11 -m64 -o ../mgmt/yolov3 ./yolov3.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
+$ g++ -std=c++11 -m64 -o ../mgmt/yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
+//--> 
 
 #### 4.Demo Code 실행
 최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
 ```
-$ LD_LIBRARY_PATH=../mgmt:$LD_LIBRARY_PATH ./yolov4
+# yolo v3
+$ LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH ./yolov3
 ```
