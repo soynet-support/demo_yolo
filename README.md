@@ -46,7 +46,7 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 
 ### SoyNet 데모 실행
 
-#### 1.Download
+#### 1.clone repository
 ```
 $ git clone https://github.com/soynet-support/demo_yolo
 ```
@@ -69,8 +69,7 @@ $ bash ./weights/download_weights.sh
 
 #### 3.Demo code Build
 ```
-$ cd samples
-$ make all 
+$ cd samples && make all 
 ```
 <!--
 $ g++ -std=c++11 -m64 -o ../mgmt/yolov3-tiny ./yolov3-tiny.cpp -I./include -L../mgmt -lSoyNet -lpthread `pkg-config opencv --cflags --libs`
@@ -81,6 +80,8 @@ $ g++ -std=c++11 -m64 -o ../mgmt/yolov4 ./yolov4.cpp -I./include -L../mgmt -lSoy
 #### 4.Demo Code 실행
 최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
 ```
-# yolo v3
+$ cd mgmt
+
+# yolo v3 경우, 
 $ LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH ./yolov3
 ```
