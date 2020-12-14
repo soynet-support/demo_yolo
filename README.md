@@ -85,3 +85,14 @@ $ cd mgmt
 # yolo v3 경우, 
 $ LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH ./yolov3
 ```
+
+
+#### 참고사항
+
+1.OpenCV 설치 : 
+ - 스크립트 원본 : https://github.com/milq/milq/blob/master/scripts/bash/install-opencv.sh
+'''
+wget https://soynet.io/download/install_opencv_345.sh && bash install_opencv_345.sh
+'''
+
+2.Docker 
