@@ -51,10 +51,10 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 $ git clone https://github.com/soynet-support/demo_yolo
 ```
 
-#### 2.create folders & download yolov4 weight file 
+#### 2.download pre-trained weight files 
 ```
 $ cd demo_yolo
-$ bash ./setup.sh
+$ bash ./weights/download_weights.sh
 ```
 
 <!--
