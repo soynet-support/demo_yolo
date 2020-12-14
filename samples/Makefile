@@ -6,7 +6,7 @@ PROGDIR=../mgmt
 
 OPENCV=`pkg-config opencv --cflags --libs`
 INCS=./include 
-LIBS=$(OPENCV) -L../mgmt/lib -lpthread -lSoyNet -lnvidia-ml
+LIBS=$(OPENCV) -L../mgmt -lpthread -lSoyNet -lnvidia-ml
 
 all : yolov3-tiny yolov3 yolov4
 
