@@ -78,7 +78,7 @@ $ LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH ./yolov3
 wget https://soynet.io/download/install_opencv_345.sh && bash install_opencv_345.sh
 '''
 
-
+<!--
 2.demo용 Docker 
  - nvidia-docker 이용한 dockerfile 예시 
 
@@ -86,3 +86,4 @@ wget https://soynet.io/download/install_opencv_345.sh && bash install_opencv_345
 $ cd utils
 $ docker build -t demo_yolo .
 '''
+//-->
