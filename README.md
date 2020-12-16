@@ -52,19 +52,19 @@ $ git clone https://github.com/soynet-support/demo_yolo
 
 #### 2.download pre-trained weight files 
 ```
-$ cd demo_yolo
-$ bash ./mgmt/weights/download_weights.sh
+$ cd demo_yolo/mgmt/weights
+$ bash ./download_weights.sh
 ```
 
 #### 3.Demo code Build
 ```
-$ cd samples && make all 
+$ cd demo_yolo/samples && make all 
 ```
 
 #### 4.Demo Code 실행
 최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
 ```
-$ cd mgmt
+$ cd demo_yolo/mgmt
 $ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./yolov3
 ```
 
