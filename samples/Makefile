@@ -2,7 +2,7 @@ CC=/usr/local/cuda/bin/nvcc
 CFLAGS=-Xcompiler -O3 -std=c++11
 
 SRCSDIR=.
-PROGDIR=../mgmt
+PROGDIR=.
 
 OPENCV=`pkg-config opencv --cflags --libs`
 INCS=./include 
