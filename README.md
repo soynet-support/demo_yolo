@@ -65,7 +65,7 @@ $ cd samples && make all
 최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
 ```
 $ cd mgmt
-$ LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH ./yolov3
+$ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./yolov3
 ```
 
 
