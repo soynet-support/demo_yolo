@@ -61,7 +61,9 @@ $ bash ./download_weights.sh
 $ cd demo_yolo/samples && make all 
 ```
 
-# yolov3-tiny 경우, (최초 실행 시 엔진 파일 생성에 시간 소요되며 이후부터는 바로 로딩)
+# yolov3-tiny 경우, 
+최초 실행 시 엔진 파일 생성에 시간 소요되며 이후부터는 바로 로딩됨 
+
 ```
 $ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./yolov3-tiny
 ```
