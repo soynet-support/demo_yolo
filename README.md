@@ -56,34 +56,13 @@ $ cd demo_yolo/mgmt/weights
 $ bash ./download_weights.sh
 ```
 
-#### 3.Demo code Build
+#### 3.Demo code Build & 실행 
 ```
 $ cd demo_yolo/samples && make all 
 ```
 
-#### 4.Demo Code 실행
-최초 실행 시 엔진파일 생성에 시간이 소요됨(이후부터는 바로 로딩)
+# yolov3-tiny 경우, (최초 실행 시 엔진 파일 생성에 시간 소요되며 이후부터는 바로 로딩)
 ```
-$ cd demo_yolo/mgmt
-$ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./yolov3
+$ LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./yolov3-tiny
 ```
-
-
-#### 참고사항
-
-1.OpenCV 설치 : 
- - 스크립트 원본 : https://github.com/milq/milq/blob/master/scripts/bash/install-opencv.sh
  
-'''
-wget https://soynet.io/download/install_opencv_345.sh && bash install_opencv_345.sh
-'''
-
-<!--
-2.demo용 Docker 
- - nvidia-docker 이용한 dockerfile 예시 
-
-'''
-$ cd utils
-$ docker build -t demo_yolo .
-'''
-//-->
