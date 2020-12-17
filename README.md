@@ -56,15 +56,24 @@ $ cd /demo_yolo/mgmt/weights
 $ bash ./download_weights.sh
 ```
 
-#### 3.Demo code Build & 실행 
+#### 3.Demo code Build 및 실행(C++)
 최초 실행 시 엔진 파일 생성에 시간 소요되며 이후부터는 바로 로딩됨 
 
 ```
 $ cd /demo_yolo/samples && make all 
 ```
 
-yolov3-tiny 경우, 
+yolov3 경우, 
 ```
-$ LD_LIBRARY_PATH=/demo_yolo/mgmt:$LD_LIBRARY_PATH ./yolov3-tiny
+$ LD_LIBRARY_PATH=/demo_yolo/mgmt:$LD_LIBRARY_PATH ./yolov3
 ```
+ 
+ #### 4.Demo 실행 (Python)
+ 
+ yolov3 경우, 
+ ```
+ $ cd /demo_yolo/samples && python3 yolov3.py 
+ 
+ ```
+ 
  
