@@ -39,7 +39,8 @@ AI Deep learning model을 위한 추론전 엔진인 [SoyNet](https://soynet.io,
 
 #### 2.S/W
  - 운영체제 : Ubuntu 18.04LTS
- - NVIDIA 개발환경 : CUDA 10.0 / cuDNN 7.6.1 / TensorRT 7.0.0.11
+ - NVIDIA 개발환경 : CUDA 10.2 / cuDNN 7.6.5 / TensorRT 7.0.0.11
+                   (CUDA 10.2를 위해서는 Nvidia-driver이 440.33 이상이 설치되어 함)
  - 기타 : OpenCV 3.4.5 (영상 파일 읽고 화면 출력하기 위한 용도)
  
 
