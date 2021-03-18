@@ -88,9 +88,9 @@ void do_yolov3(int model_height, int model_width, int input_height, int input_wi
 	};
 
 
-	int nms_count = 50; // È­¸é¿¡ Ç¥½ÃÇÒ ÃÖ´ë °´Ã¼ÀÇ ¼ö <= ¸ğµ¨¿¡¼­ Á¤ÀÇÇÑ ÃÖÁ¾ °´Ã¼ÀÇ ¼ö
+	int nms_count = 50; // í™”ë©´ì— í‘œì‹œí•  ìµœëŒ€ ê°ì²´ì˜ ìˆ˜ <= ëª¨ë¸ì—ì„œ ì •ì˜í•œ ìµœì¢… ê°ì²´ì˜ ìˆ˜
 	int batch_size = params.size();
-	int engine_serialize = 1;
+	int engine_serialize = 0;
 	char license_file[] = "../mgmt/configs/license_trial.key";
 	int device_id = 0;
 
@@ -108,12 +108,12 @@ void do_yolov3(int model_height, int model_width, int input_height, int input_wi
 		batch_size, engine_serialize, model_name, class_count, nms_count, license_file, device_id, engine_file, weight_file, log_file, input_height, input_width, model_height, model_width);
 	void* soynet = initSoyNet(cfg_file, extend_param);
 
-	vector<uchar> colors(class_count * 3); // ¸¶½ºÅ©·Î »ç¿ëÇÒ »ö»ó table ÀúÀå¼Ò
-	makeColors(class_count, colors.data(), "bgr"); // mask·Î »ç¿ëÇÒ »ö»ó TableÀ» ¹Ì¸® ¸¸µé¾î ³õ´Â´Ù.
+	vector<uchar> colors(class_count * 3); // ë§ˆìŠ¤í¬ë¡œ ì‚¬ìš©í•  ìƒ‰ìƒ table ì €ì¥ì†Œ
+	makeColors(class_count, colors.data(), "bgr"); // maskë¡œ ì‚¬ìš©í•  ìƒ‰ìƒ Tableì„ ë¯¸ë¦¬ ë§Œë“¤ì–´ ë†“ëŠ”ë‹¤.
 	int thickness = 2, lineType = 8, shift = 0;
 
-	// memory¸¦ ÇÒ´çÇÏ°í, ±×°É ÀÌ¿ëÇÏ´Â MatÀ» ¸¸µç´Ù.
-	// MatÀº disp¿Í infer¿¡ µ¿½Ã¿¡ »ç¿ëµÇ¾î¾ß ÇÏ¹Ç·Î even, odd¸¦ °¢°¢ ÁØºñÇÑ´Ù.
+	// memoryë¥¼ í• ë‹¹í•˜ê³ , ê·¸ê±¸ ì´ìš©í•˜ëŠ” Matì„ ë§Œë“ ë‹¤.
+	// Matì€ dispì™€ inferì— ë™ì‹œì— ì‚¬ìš©ë˜ì–´ì•¼ í•˜ë¯€ë¡œ even, oddë¥¼ ê°ê° ì¤€ë¹„í•œë‹¤.
 	vector<uint8_t> origMems(2 * batch_size*input_height*input_width * 3);
 	vector<void*> inputs{ origMems.data(), origMems.data() + batch_size * input_height*input_width * 3 };
 	vector<vector<Mat>> origMats(2);
@@ -139,7 +139,7 @@ void do_yolov3(int model_height, int model_width, int input_height, int input_wi
 		namedWindow(win_names[bidx], CV_WINDOW_NORMAL);
 		resizeWindow(win_names[bidx], input_width, input_height);
 
-		vcaps[bidx].read(origMats[0][bidx]); // evenºÎÅÍ ½ÃÀÛ, origEvenMemÀÇ memory°¡ Ã¤¿öÁø´Ù.
+		vcaps[bidx].read(origMats[0][bidx]); // evenë¶€í„° ì‹œì‘, origEvenMemì˜ memoryê°€ ì±„ì›Œì§„ë‹¤.
 	}
 
 	long long batch_count = 0;
@@ -152,13 +152,13 @@ void do_yolov3(int model_height, int model_width, int input_height, int input_wi
 	int eo_flip = 0;
 
 	while (do_loop) {
-		thread t1(task_yolov3, soynet, inputs[eo_flip], outputs[eo_flip], &batch_sec); // ÀÔ·ÂÀº input.data()¿¡ resizeµÇ¾î µé¾î°¡ ÀÖ´Ù.
+		thread t1(task_yolov3, soynet, inputs[eo_flip], outputs[eo_flip], &batch_sec); // ì…ë ¥ì€ input.data()ì— resizeë˜ì–´ ë“¤ì–´ê°€ ìˆë‹¤.
 
-		if (batch_count > 0) { // Display¿Í Inference µ¿ÀÛÀÌ º´·Ä·Î ÀÌ·ç¾îÁö´Â °ü°è·Î ÃÖÃÊ ½ÇÇà½Ã¿¡´Â DisplayÇÒ BoxÁ¤º¸°¡ ¾ø´Ù.
+		if (batch_count > 0) { // Displayì™€ Inference ë™ì‘ì´ ë³‘ë ¬ë¡œ ì´ë£¨ì–´ì§€ëŠ” ê´€ê³„ë¡œ ìµœì´ˆ ì‹¤í–‰ì‹œì—ëŠ” Displayí•  Boxì •ë³´ê°€ ì—†ë‹¤.
 			BBox* bbox_base = (BBox*)outputs[eo_flip];
 
-			for (int bidx = 0; bidx < batch_size; bidx++) { // batch_size °¢°¢¿¡ ´ëÇÏ¿© DisplayÇÑ´Ù.
-				Mat& img = origMats[eo_flip][bidx]; // ¿øº» ÀÔ·Â ¿µ»ó
+			for (int bidx = 0; bidx < batch_size; bidx++) { // batch_size ê°ê°ì— ëŒ€í•˜ì—¬ Displayí•œë‹¤.
+				Mat& img = origMats[eo_flip][bidx]; // ì›ë³¸ ì…ë ¥ ì˜ìƒ
 				if (is_bbox) {
 					BBox* bbox = bbox_base + bidx * nms_count;
 					for (int idx = 0; idx < nms_count && bbox[idx].confid>0.f; idx++) {
