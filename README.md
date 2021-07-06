@@ -50,7 +50,7 @@ dll file (Windows), so file (Linux) with header or *.lib for building in C/C++
     - For CUDA 10.2, Nvidia-driver 440.33 or higher must be installed
 - Others: OpenCV (for reading video files and outputting the screen)
 
-If you have any trouble to make demo environment, you can refer [docker container]([https://github.com/soynet-support/demo_docker](https://github.com/soynet-support/demo_docker), "docker container").
+If you have any trouble to make demo environment, you can refer [docker container](https://github.com/soynet-support/demo_docker).
 
 ### Run SoyNet Demo
 
